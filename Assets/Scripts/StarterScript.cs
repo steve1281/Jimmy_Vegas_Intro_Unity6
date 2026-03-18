@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 
@@ -13,15 +15,21 @@ public class StarterScript : MonoBehaviour
     [SerializeField] GameObject name2;
     [SerializeField] GameObject gateButton;
 
+
+    [SerializeField] GameObject fadeIn;
+    [SerializeField] GameObject fadeOut;
+
     void Start()
     {
         myNumber = 4;
         myName = "Steve";
         myChoice = true;
 
-       // Unlock and show the cursor
-       // Cursor.lockState = CursorLockMode.None;
-       // Cursor.visible = true;
+        // Unlock and show the cursor
+        // Cursor.lockState = CursorLockMode.None;
+        // Cursor.visible = true;
+
+        StartCoroutine(MySequence());
     }
 
     void Update()
@@ -48,5 +56,21 @@ public class StarterScript : MonoBehaviour
     public void HideButton()
     {
         gateButton?.SetActive(false);
+    }
+
+    IEnumerator MySequence()
+    {
+
+        // the fadeIn should just run (so is already active)
+        yield return new WaitForSeconds(0.5f);
+        fadeIn.SetActive(false);   // hide the fadeIn screen
+        myGate.GetComponent<Animator>().Play("GateSwing");
+        yield return new WaitForSeconds(4f);
+        gateButton?.SetActive(false); // hide a button
+        yield return new WaitForSeconds(5f);
+        // author does some stuff with a sphere ; not going to bother
+        yield return new WaitForSeconds(2f);
+        fadeOut.SetActive(true);
+
     }
 }
