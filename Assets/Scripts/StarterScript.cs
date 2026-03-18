@@ -19,6 +19,8 @@ public class StarterScript : MonoBehaviour
     [SerializeField] GameObject fadeIn;
     [SerializeField] GameObject fadeOut;
 
+    [SerializeField] AudioSource ding;
+
     void Start()
     {
         myNumber = 4;
@@ -55,13 +57,14 @@ public class StarterScript : MonoBehaviour
     }
     public void HideButton()
     {
-        gateButton?.SetActive(false);
+        //gateButton?.SetActive(false);
+        ding?.Play();
     }
 
     IEnumerator MySequence()
     {
 
-        // the fadeIn should just run (so is already active)
+        fadeIn.SetActive(true);   // show the fadeIn screen
         yield return new WaitForSeconds(0.5f);
         fadeIn.SetActive(false);   // hide the fadeIn screen
         myGate.GetComponent<Animator>().Play("GateSwing");
