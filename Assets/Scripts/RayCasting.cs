@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RayCasting : MonoBehaviour
 {
-    public static float distanceFromTarget = 0.0f;
+    public static float distanceFromTarget = 3.0f;
     [SerializeField] float toTarget = 0.0f;
     [SerializeField] GameObject hitThing;
 
@@ -14,9 +15,12 @@ public class RayCasting : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-            toTarget = hit.distance;
-            distanceFromTarget = toTarget;
-            hitThing = hit.collider.gameObject;
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                toTarget = hit.distance;
+                distanceFromTarget = toTarget;
+                hitThing = hit.collider.gameObject;
+            }
         }
 
     }
