@@ -31,7 +31,7 @@ public class StarterScript : MonoBehaviour
         // Cursor.lockState = CursorLockMode.None;
         // Cursor.visible = true;
 
-        StartCoroutine(MySequence());
+        //StartCoroutine(MySequence());
     }
 
     void Update()
