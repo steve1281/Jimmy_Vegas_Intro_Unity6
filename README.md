@@ -1149,7 +1149,4 @@ public class PathFollow : MonoBehaviour
 - NOTE: this does nothing when in IDE mode, and only matters when standalone
 - so test with Build and Run
 
-# moving forward to VR and other things...
-- I think I will branch for this effort; probably vr_development
-- so as to preserve the author's original efforts
 
