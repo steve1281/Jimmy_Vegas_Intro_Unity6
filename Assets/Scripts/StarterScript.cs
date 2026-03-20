@@ -2,6 +2,7 @@ using System.Collections;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StarterScript : MonoBehaviour
 {
@@ -21,8 +22,12 @@ public class StarterScript : MonoBehaviour
 
     [SerializeField] AudioSource ding;
 
+    [SerializeField] GameObject canvas;
+
+
     void Start()
     {
+        Application.targetFrameRate = 60;
         myNumber = 4;
         myName = "Steve";
         myChoice = true;
@@ -40,15 +45,29 @@ public class StarterScript : MonoBehaviour
         {
             //name1.GetComponent<TMP_Text>().text = myName;
             name1.GetComponent<TMP_Text>().text = $"My Number: {myNumber} My Name: {myName}";
-            name2.GetComponent<TMP_Text>().text = $"";
+            name2.GetComponent<TMP_Text>().text = $"----------";
             //myGate.SetActive(true);
         } else
         {
             //myGate.SetActive(false);
-            name1.GetComponent<TMP_Text>().text = $"";
+            name1.GetComponent<TMP_Text>().text = $"----------";
             name2.GetComponent<TMP_Text>().text = $"My Number: {myNumber} My Name: {myName}";
         }
-        
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
+        {
+            canvas.SetActive(!canvas.activeSelf);
+            // Unlock and show the cursor
+            if (canvas.activeSelf)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            } else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+            }
+        }
     }
 
     public void OpenGate()
@@ -75,5 +94,9 @@ public class StarterScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         fadeOut.SetActive(true);
 
+    }
+    public void QuitGame()
+    {
+        Application.Quit(); // Closes the application
     }
 }
