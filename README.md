@@ -1150,6 +1150,5 @@ public class PathFollow : MonoBehaviour
 - so test with Build and Run
 
 # moving forward to VR and other things...
-- I think I will branch for this effort; probably vr_development
-- so as to preserve the author's original efforts
-
+- first, I will create a branch called original_course; to store the work based on the original author's course
+- from here on, will migrate to a VR working solution
