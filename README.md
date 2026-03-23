@@ -1152,3 +1152,39 @@ public class PathFollow : MonoBehaviour
 # moving forward to VR and other things...
 - first, I will create a branch called original_course; to store the work based on the original author's course
 - from here on, will migrate to a VR working solution
+
+# Migrate to latest unity
+- 6000.4.0f1 is now available, so I will migrate the project to this
+- we got some informational messaging on recalculating normal
+- run code, everything seems to work
+
+# Install XR Interaction Toolkit
+- TBD
+
+# set up VR
+- TBD
+
+# Create an XR Rig - part 1 (head)
+- TBD
+
+# Create an XR Rig - part 2 (hands)
+- TBD
+
+# VR Locomotion
+- TBD
+
+# VR UI
+- TBD
+
+# Raycasts - Gate
+- TBD
+
+# Raycast - Chest
+- TBD
+
+# Building - Collisions
+- TBD
+
+# NPC - Pathfinding 
+- TBD
+
